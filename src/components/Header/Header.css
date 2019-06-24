@@ -3,6 +3,7 @@
   font-size: 1.6em;
   padding-top:15px;
   margin-left: 15px;
+  margin-bottom: 10px;
   display: inline-block;
 }
 
@@ -22,31 +23,55 @@ header{
   border-bottom: 1px solid black;
 }
 
-nav{
+.login-text{
+  font-size: 1.2em;
+  position: absolute;
+  top: 26px;
+  right: 20px;
+  color: white
+} 
+
+nav > a{
+  color: white;
+  text-decoration: none;
+  display: inline; 
+}
+
+nav > a:hover{
+  text-decoration: underline;
+}  
+
+.welcome-user-text{
+  display: inline;
+  color: white;
+}
+
+.logout-section{
+  margin-left: 20px;  
+  display: inline;
+}
+
+.logged-in-view{
   position: absolute;
   top: 26px;
   right: 20px;
   color: white
 }
 
-nav > a{
-  color: white;
-  text-decoration: none;
-}
-
-nav > a:hover{
-  text-decoration: underline;
-}   
-
 @media screen and (min-width: 700px){
   .header-brand{
     font-size: 2em;
   }
 
-  nav{
-    position: absolute;
-    top: 31px;
+  .logout-section, .welcome-user-text, .login-text{
     font-size: 1.2em;
-  }
+  } 
 }
+
+ /* nav{
+   display: inline;
+    /* position: absolute; */
+    /* top: 31px; */
+    /* margin-left: 50px;
+   */ 
 
