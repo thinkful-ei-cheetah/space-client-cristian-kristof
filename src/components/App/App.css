@@ -1,0 +1,39 @@
+.App{
+  background-image: url('../../img/chalk-background.jpg');
+  height: 100vh;
+  background-size: cover;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+main{
+  text-align: center;
+  width: 27em;
+  height: 30em;
+  box-shadow: 0 0 1rem 0 rgba(0,0,0, .2);
+  /* border-radius: 5px; */
+  background-color: rgba(255, 255, 255, .8);
+  backdrop-filter: blur(10px);
+}
+
+
+/* main:before{
+  content: '';
+  position: absolute;
+  top: 30px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: inherit;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255);
+  filter: blur(10px);
+
+} */
+
+@media screen and (min-width: 700px){
+  .App{
+    height: 100vh;
+  }
+}
+ 

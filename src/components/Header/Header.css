@@ -1,0 +1,52 @@
+.header-brand{
+  margin-top: 0px;
+  font-size: 1.6em;
+  padding-top:15px;
+  margin-left: 15px;
+  display: inline-block;
+}
+
+.header-brand > a{
+  color: white;
+  text-decoration: none;
+}
+
+.header-brand > a:hover{
+  border-bottom: 1px solid rgb(255, 255, 255);
+}
+
+header{ 
+  position: absolute;
+  width: 100%;
+  background-color: rgba(0,0,0,.6);
+  border-bottom: 1px solid black;
+}
+
+nav{
+  position: absolute;
+  top: 26px;
+  right: 20px;
+  color: white
+}
+
+nav > a{
+  color: white;
+  text-decoration: none;
+}
+
+nav > a:hover{
+  text-decoration: underline;
+}   
+
+@media screen and (min-width: 700px){
+  .header-brand{
+    font-size: 2em;
+  }
+
+  nav{
+    position: absolute;
+    top: 31px;
+    font-size: 1.2em;
+  }
+}
+
