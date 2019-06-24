@@ -1,8 +1,21 @@
-# Spaced Repetition Capstone
+# Spaced Repetition Project
 
-## Setup
+## Welcome to the Space Repitition Language Learner
 
-To setup the application
+Space Repitition is a strategy for studying new material. It allows more frequently missed words to show up more often, and words that are translated correctly more often show up less and eventually not at all.
+
+A user can make an account, and at which point can access their dashboard where they can see their progress as well as a word to translate. If the user gets it right they can move on to another word. A user can track their progress and see how close they are to completing the module. 
+
+The Live website can be found here <site_after_deploy>
+
+This project was created by Cristian & Kristof.
+
+The frontend uses:
+1. React
+2.  Cypress for testing
+
+
+## Install
 
 1. Fork and clone the project to your machine
 2. `npm install`. This will also install the application *Cypress.io* for running browser integration tests
