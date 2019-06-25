@@ -3,11 +3,10 @@ import { Input, Label } from '../Form/Form'
 import AuthApiService from '../../services/auth-api-service'
 import UserContext from '../../contexts/UserContext'
 import Button from '../Button/Button'
+import LanguageService from '../../services/language-service';
+import LanguageContext from '../../contexts/languageContext'
 
 class LoginForm extends Component {
-  static defaultProps = {
-    onLoginSuccess: () => { }
-  }
 
   static contextType = UserContext
 
@@ -29,9 +28,20 @@ class LoginForm extends Component {
         username.value = ''
         password.value = ''
         this.context.processLogin(res.authToken)
-        this.props.onLoginSuccess()
+        return '';
       })
+      .then(_ => {
+        return LanguageService.getData();
+      })
+      .then(data => {
+        this.props.handleGetData(data)
+        //this.props.onLoginSuccess()
+      })
+        
+
       .catch(res => {
+        console.log('here')
+        console.log(res)
         this.setState({ error: res.error })
       })
   }

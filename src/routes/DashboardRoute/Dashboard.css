@@ -45,6 +45,15 @@
   font-size: 1.5em;
 }
 
+.word-list{
+  height: 200px;
+  list-style: none;
+}
+
+.word-list > li{
+  padding: 5px 10px;
+}
+
 .start-learn-btn{
   padding: 10px 15px;
   background-color: transparent;
@@ -52,7 +61,7 @@
   color:white;
   box-shadow: 1px 1px white;
   position:relative;
-  top: 270px;
+  top: 160px;
 }
 
 .start-learn-btn:hover{
