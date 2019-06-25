@@ -28,14 +28,14 @@ class LoginForm extends Component {
         username.value = ''
         password.value = ''
         this.context.processLogin(res.authToken)
-        return '';
-      })
-      .then(_ => {
-        return LanguageService.getData();
-      })
-      .then(data => {
-        this.props.handleGetData(data)
-        //this.props.onLoginSuccess()
+      //   return '';
+      // })
+      // .then(_ => {
+      //   return LanguageService.getData();
+      // })
+      // .then(data => {
+      //   this.props.handleGetData(data)
+      this.props.onLoginSuccess()
       })
         
 

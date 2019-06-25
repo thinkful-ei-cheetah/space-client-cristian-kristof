@@ -8,12 +8,11 @@ class DashboardRoute extends Component {
 
   static contextType = LanguageContext;
   componentDidMount = () =>{
-    this.shouldGrabData()
-    
+    this.grabData()
   }
   
 
-  shouldGrabData = () =>{
+  grabData = () =>{
     console.log(this.context.name)
     if (!this.context.name){
       console.log('yes i need to get data')
