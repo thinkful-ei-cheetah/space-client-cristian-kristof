@@ -54,7 +54,8 @@ export class LanguageProvider extends Component {
       error: this.state.error,
       setError: this.setError,
       clearError: this.clearError,
-      setLanguage: this.setLanguage
+      setLanguage: this.setLanguage,
+      head: this.state.head
     }
     return (
       <LanguageContext.Provider value={value}>

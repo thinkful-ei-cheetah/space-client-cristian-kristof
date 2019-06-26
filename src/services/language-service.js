@@ -22,5 +22,47 @@ export default {
       console.log('error')
       return {error: 'Problem getting data'}
     }
-  }
+  },
+
+  async getWord(){
+    try{
+      const data = await fetch(`${config.API_ENDPOINT}/language/head`, {
+        headers:{
+          "content-type":"application/json",
+          "Authorization": `bearer ${TokenService.getAuthToken()}`
+        }
+      })
+      if (!data.ok){
+        const errorJson = await data.json()
+        return errorJson
+      }
+      const jsonWordData = await data.json();
+     
+      return jsonWordData;
+    } catch (e){
+      console.log('error')
+      return {error: 'Problem getting data'}
+    }
+  },
+
+  async guessAnswer(guessWord){
+    try{
+      const data = await fetch(`${config.API_ENDPOINT}/language/guess`, {
+        headers:{
+          "content-type":"application/json",
+          "Authorization": `bearer ${TokenService.getAuthToken()}`
+        }
+      })
+      if (!data.ok){
+        const errorJson = await data.json()
+        return errorJson
+      }
+      const jsonWordData = await data.json();
+     
+      return jsonWordData;
+    } catch (e){
+      console.log('error')
+      return {error: 'Problem getting data'}
+    }
+  },
 }

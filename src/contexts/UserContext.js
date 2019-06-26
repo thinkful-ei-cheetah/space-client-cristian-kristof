@@ -12,14 +12,12 @@ const UserContext = React.createContext({
   processLogin: () => {},
   processLogout: () => {},
 })
-console.log(UserContext)
 export default UserContext
 
 export class UserProvider extends Component {
   constructor(props) {
     super(props)
     const state = { user: {}, error: null }
-    console.log(state, this.state)
     const jwtPayload = TokenService.parseAuthToken()
 
     if (jwtPayload)

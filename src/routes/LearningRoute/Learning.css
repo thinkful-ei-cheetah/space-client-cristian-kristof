@@ -1,0 +1,28 @@
+.correct-counts{
+  font-size: 15px;
+}
+
+.word-to-translate{
+  font-size: 25px;
+}
+
+.guess-count{
+  margin-top: 50px;
+}
+
+.submit-ans{
+  margin: auto;
+  padding: 10px 15px;
+  background-color: transparent;
+  border: 1px solid white;
+  box-shadow: 1px 1px white;
+  color: white;
+}
+
+.submit-ans:hover{
+  box-shadow: none;
+}
+
+#learn-guess-input {
+  width: 150px;
+}
