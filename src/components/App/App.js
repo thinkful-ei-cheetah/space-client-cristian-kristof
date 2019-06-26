@@ -49,7 +49,9 @@ export default class App extends Component {
               component={NotFoundRoute}
             />
           </Switch>
+          
         </main>
+
         </div>
     );
   }

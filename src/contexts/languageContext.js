@@ -1,7 +1,4 @@
 import React, { Component } from 'react'
-import AuthApiService from '../services/auth-api-service' // language api
-import TokenService from '../services/token-service'
-
 
 const LanguageContext = React.createContext({
     name: "Spanish",

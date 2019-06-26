@@ -45,9 +45,11 @@ export default {
     }
   },
 
-  async guessAnswer(guessWord){
+  async postGuess(guessWord){
     try{
       const data = await fetch(`${config.API_ENDPOINT}/language/guess`, {
+        method: 'POST',
+        body: JSON.stringify(guessWord),
         headers:{
           "content-type":"application/json",
           "Authorization": `bearer ${TokenService.getAuthToken()}`
@@ -66,3 +68,4 @@ export default {
     }
   },
 }
+

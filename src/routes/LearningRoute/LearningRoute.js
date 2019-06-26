@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import './Learning.css';
 import LanguageService from '../../services/language-service'
-import LanguageContext from '../../contexts/languageContext';
-import LearningForm from './LearningForm'
+import Question from './Question';
+import Answer from './Answer'
 
 // "nextWord": "Testnextword",
 //   "wordCorrectCount": 222,
@@ -11,26 +11,21 @@ import LearningForm from './LearningForm'
 
 class LearningRoute extends Component {
   state = {
+    guess: '',
+    showQuestion: true,
     nextWord: '',
     totalScore: null,
     correctCount: null,
     incorrectCount: null,
-
+    isCorrect: false,
 
   }
-   static defaultProps ={
-     word: 'Hello',
-     wrongCount: 3,
-     rightCount: 5,
-     total_score: 17
-   }
-  static contextType = LanguageContext;
 
-  async componentDidMount(){
-    await this.grabWord();
+componentDidMount(){
+    this.grabWord();
   }
 
-   grabWord = async () =>{
+  grabWord = async () =>{
     const wordData = await LanguageService.getWord(this.context.head);
     console.log(wordData)
     this.setState({
@@ -38,31 +33,50 @@ class LearningRoute extends Component {
       totalScore: wordData.totalScore,
       correctCount: wordData.wordCorrectCount,
       incorrectCount: wordData.wordIncorrectCount,
-
     })
   }
 
-  handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('submitted')
+  handleInput = (e)=> {
+    const{ value } = e.target
+    this.setState({guess: value.toLowerCase()})
   }
 
-  render() {
-    const {total_score, words} = this.context
-    return (
-      <section>
-        <p className="current-score">Your total score is: {this.state.totalScore}</p>
-        <br/>
-        <br/>
-        <h2 className="current-word">Translate the word:</h2> 
-        <span className="word-to-translate">{this.state.nextWord}</span>
-        <LearningForm handleSubmit={this.handleSubmit}/>
+  handleNextQuestion = (e) => {
+    e.preventDefault();
+    this.setState({
+      showQuestion: true,
+      guess: ''
+    }) 
+  }
 
-        <div className="guess-count">
-          <p className="correct-counts">{`You have answered this word correctly ${this.state.correctCount} times.`}</p>
-          <p className="correct-counts">{`You have answered this word incorrectly ${this.state.incorrectCount} times.`}</p>
-        </div>
-      </section>
+   handleShowAnswer = async (e) => {
+    e.preventDefault();
+    try{
+      const data = await LanguageService.postGuess({guess: this.state.guess})
+      console.log(data)
+      this.setState({
+      showQuestion: false,
+    
+      })
+    } catch(e){
+      this.setState({
+        error: e.message
+      })
+      console.log(e);
+    }
+  }
+  
+  render() {
+    return (
+      this.state.showQuestion ? 
+        <Question  
+          handleSubmit={this.handleShowAnswer}
+          props={this.state} handleInput={this.handleInput}
+          />
+      : <Answer 
+          handleNextQuestion={this.handleNextQuestion}
+          props={this.state}
+        />
     );
   }
 }
