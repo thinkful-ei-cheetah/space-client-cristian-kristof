@@ -4,6 +4,7 @@ import UserContext from '../../contexts/UserContext'
 import LanguageProvider from '../../contexts/languageContext';
 
 export default function PrivateRoute({ component, ...props }) {
+  
   const Component = component
   return (
     <Route
@@ -14,7 +15,7 @@ export default function PrivateRoute({ component, ...props }) {
           <LanguageProvider.Consumer>
             {languageContext => 
             !!userContext.user.id
-              ? <Component {...componentProps} />
+              ? <Component {...componentProps} main={props.main}/>
               : (
                 <Redirect
                   to={{

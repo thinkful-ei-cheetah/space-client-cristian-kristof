@@ -36,13 +36,25 @@ componentDidMount(){
     })
   }
 
+
+  rotate90(){
+    this.props.main.current.classList.add('rotatez')
+  }
+
+  removeRotate90(){
+    this.props.main.current.classList.remove('rotatez')
+  }
+
   handleInput = (e)=> {
     const{ value } = e.target
     this.setState({guess: value.toLowerCase()})
   }
 
-  handleNextQuestion = (e) => {
+  handleNextQuestion = async (e) => {
+   console.log('remove')
     e.preventDefault();
+    this.removeRotate90();
+    await this.grabWord();
     this.setState({
       showQuestion: true,
       guess: ''
@@ -53,6 +65,8 @@ componentDidMount(){
     e.preventDefault();
     try{
       const data = await LanguageService.postGuess({guess: this.state.guess})
+      this.rotate90();
+      //this.reverseRotate90();
       console.log(data)
       this.setState({
       showQuestion: false,

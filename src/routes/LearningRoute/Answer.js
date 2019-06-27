@@ -1,10 +1,10 @@
 import React from 'react'
 
 
-const Answer = ({props}) => {
+const Answer = ({props, handleNextQuestion}) => {
 
 
-  const {totalScore, nextWord, handleGetNextQuestion, correctCount, incorrectCount, isCorrect, guess} = props;
+  const {totalScore, nextWord, correctCount, incorrectCount, isCorrect, guess} = props;
   
   const correctView = isCorrect ? <h2>Good job, you did it! :(</h2> : <h2>Good try, but not quite right :(</h2>
 
@@ -19,9 +19,9 @@ const Answer = ({props}) => {
     <br/>
     {correctView}
     {followUp}
-    <span className="word-to-translate">{nextWord}</span>
+    {/* <span className="word-to-translate">{nextWord}</span> */}
  
-    <button type="button">onClick={handleGetNextQuestion}>Try Another Question</button>
+    <button type="button" onClick={handleNextQuestion}>Try Another Question</button>
     <div className="guess-count">
       <p className="correct-counts">{`You have answered this word correctly ${correctCount} times.`}</p>
       <p className="correct-counts">{`You have answered this word incorrectly ${incorrectCount} times.`}</p>

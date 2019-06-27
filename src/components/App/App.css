@@ -19,6 +19,41 @@ main{
   border-radius: 5px;
   border-top-left-radius: 9px;
   border-top-right-radius: 9px;
+  -webkit-transition: -webkit-transform .8s ease-in-out;
+  -ms-transition: -ms-transform .8s ease-in-out;
+  transition: transform 2s ease-in-out transform 3s ease-in-out;  
+}
+
+.rotatez {
+  animation: move 1s linear forwards;
+}
+@keyframes move {
+  /* 0% {
+    transform: rotateY(-90deg);
+  } */
+
+   0% {
+    transform: rotateY(0deg);
+  } 
+   50% {
+    transform: rotateY(90deg);
+  } 
+
+    100% {
+    transform: rotateY(0deg);
+  } 
+}
+body {
+  min-height: 100vh;
+}
+
+.rotate{
+  transform:rotateY(90deg);
+  transform:rotateY(90deg);
+}
+.rotateReverse{
+  transform:rotateY(-90deg);
+  transform:rotateY(-90deg);
 }
 
 

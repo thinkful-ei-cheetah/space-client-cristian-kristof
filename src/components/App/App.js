@@ -11,7 +11,14 @@ import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute'
 import './App.css'
 
 export default class App extends Component {
-  state = { hasError: false }
+  constructor(props){
+    super(props)
+    this.state = { 
+       hasError: false 
+    }
+    this.mainContainer = React.createRef();
+  }
+
 
   static getDerivedStateFromError(error) {
     console.error(error)
@@ -23,7 +30,7 @@ export default class App extends Component {
     return (
       <div className='App'>
         <Header />
-        <main>
+        <main ref={this.mainContainer}>
           {hasError && (
             <p>There was an error! Oh no!</p>
           )}
@@ -33,7 +40,8 @@ export default class App extends Component {
               path={'/'}
               component={DashboardRoute}
             />
-            <PrivateRoute
+            <PrivateRoute main={this.mainContainer}
+            other={'something'}
               path={'/learn'}
               component={LearningRoute}
             />
