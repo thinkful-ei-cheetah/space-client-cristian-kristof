@@ -1,6 +1,6 @@
 .header-brand{
   margin-top: 0px;
-  font-size: 1.6em;
+  font-size: 1.2em;
   padding-top:15px;
   margin-left: 15px;
   margin-bottom: 10px;
@@ -26,8 +26,8 @@ header{
 .login-text{
   font-size: 1.2em;
   position: absolute;
-  top: 26px;
-  right: 20px;
+  top: 52px;
+  right: 30px;
   color: white
 } 
 
@@ -44,24 +44,116 @@ nav > a:hover{
 .welcome-user-text{
   display: inline;
   color: white;
+  margin-right: 60px;
 }
 
 .logout-section{
-  margin-left: 20px;  
+  color: red;
+  right: 10px;
+  top: 35px;  
   display: inline;
+  position: absolute;
+  
 }
 
 .logged-in-view{
   position: absolute;
-  top: 26px;
+  top: 20px;
   right: 20px;
   color: white
 }
+
+.bar{
+  width: 30px;
+  height: 3px;
+  background-color: white;
+  margin: 4px 0;
+  transition: 0.4s;
+}
+
+.container{
+  display: inline-block;
+  position: absolute;
+  top: 18px;
+  right: 30px;
+  z-index: 10;
+}
+
+.change .b1{
+  transform: rotate(-45deg) translate(-9px, 6px);
+  -webkit-transform: rotate(-45deg) translate(-3px, 3px);
+}
+
+.change .b2{
+  opacity: 0;
+}
+
+.change .b3 {
+  transform: rotate(45deg) translate(-8px, -8px);
+  -webkit-transform: rotate(45deg) translate(-8px, -8px);
+}
+
+nav{
+ top: 20px
+}
+
+.logged-in-view{
+  display: hidden;
+}
+
+@media screen and (min-width: 500px){
+  nav{
+    display: inherit;
+  }
+
+  .container{
+    display: none;
+  }
+
+  .login-text{
+    font-size: 1.2em;
+    position: absolute;
+    top: 16px;
+    right: 30px;
+    color: white
+  } 
+  
+  nav > a{
+    color: white;
+    text-decoration: none;
+    display: inline; 
+  }
+  
+  nav > a:hover{
+    text-decoration: underline;
+  }  
+  
+  .welcome-user-text{
+    display: inline;
+    color: white;
+    margin-right: 20px;
+  }
+  
+  .logout-section{
+    display: inline;
+    position: static;
+  
+  }
+  
+  .logged-in-view{
+  
+
+  }
+}
+
+
 
 @media screen and (min-width: 700px){
   .header-brand{
     font-size: 2em;
   }
+
+  
 
   .logout-section, .welcome-user-text, .login-text{
     font-size: 1.2em;

@@ -4,11 +4,11 @@ import React from 'react'
 const Answer = ({props, handleNextQuestion}) => {
 
 
-  const {totalScore, nextWord, correctCount, incorrectCount, isCorrect, guess} = props;
+  const {answer, totalScore, nextWord, correctCount, incorrectCount, isCorrect, guess} = props;
   
   const correctView = isCorrect ? <h2>Good job, you did it! :(</h2> : <h2>Good try, but not quite right :(</h2>
 
-    const followUp = isCorrect ?  <p>Good job </p> : <p>The correct translation for {nextWord} was changeME! and you chose {guess}</p>
+    const followUp = isCorrect ?  <p>Good job </p> : <p>The correct translation for {nextWord} was {answer} and you chose {guess}</p>
 
   return (
   <section>

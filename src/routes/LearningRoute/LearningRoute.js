@@ -18,6 +18,8 @@ class LearningRoute extends Component {
     correctCount: null,
     incorrectCount: null,
     isCorrect: false,
+    upcoming:'',
+    answer: ''
 
   }
 
@@ -53,11 +55,12 @@ componentDidMount(){
   handleNextQuestion = async (e) => {
    console.log('remove')
     e.preventDefault();
-    this.removeRotate90();
+    // this.removeRotate90();
     await this.grabWord();
     this.setState({
       showQuestion: true,
-      guess: ''
+      guess: '',
+      // nextQuestion: this.state.upcoming
     }) 
   }
 
@@ -65,13 +68,17 @@ componentDidMount(){
     e.preventDefault();
     try{
       const data = await LanguageService.postGuess({guess: this.state.guess})
-      this.rotate90();
-      //this.reverseRotate90();
       console.log(data)
-      this.setState({
+      this.rotate90();
+      setTimeout(() => this.setState({
       showQuestion: false,
-    
-      })
+      answer: data.answer,
+      isCorrect: data.isCorrect,
+      upcoming: data.nextWord,
+      totalScore: data.totalScore,
+      correctCount: data.wordCorrectCount,
+      incorrectCount: data.wordIncorrectCount
+      }),500)
     } catch(e){
       this.setState({
         error: e.message

@@ -5,12 +5,20 @@ import UserContext from '../../contexts/UserContext'
 import './Header.css'
 
 class Header extends Component {
+  state = {
+    showMenuButton: true,
+    showMenu: false
+  }
   static contextType = UserContext
 
   handleLogoutClick = () => {
     this.context.processLogout()
   }
 
+  toggleMenu(e){
+    console.log(e.currentTarget)
+    e.currentTarget.classList.toggle("change");
+  }
   renderLogoutLink() {
     return (
       <div className="logged-in-view">
@@ -46,6 +54,11 @@ class Header extends Component {
             Spaced repetition
           </Link>
         </h1>
+        <div className="container" onClick={this.toggleMenu}>
+          <div className="bar b1"></div>
+          <div className="bar b2"></div>
+          <div className="bar b3"></div>
+        </div>
         {TokenService.hasAuthToken()
           ? this.renderLogoutLink()
           : this.renderLoginLink()}

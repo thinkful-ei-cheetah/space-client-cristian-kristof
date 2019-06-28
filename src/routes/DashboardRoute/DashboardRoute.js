@@ -57,9 +57,9 @@ class DashboardRoute extends Component {
     
     return (
       <section>
-        <div className="meter">
+        {/* <div className="meter">
           <span style={this.props.style}>99%</span>
-        </div>
+        </div> */}
         <span className="current-score">Total correct answers: {total_score} </span>
         <h2 className="current-language">{name}</h2> 
         <ul className="word-list">
