@@ -29,7 +29,6 @@ componentDidMount(){
 
   grabWord = async () =>{
     const wordData = await LanguageService.getWord(this.context.head);
-    console.log(wordData)
     this.setState({
       nextWord: wordData.nextWord,
       totalScore: wordData.totalScore,
@@ -55,11 +54,13 @@ componentDidMount(){
   handleNextQuestion = async (e) => {
    console.log('remove')
     e.preventDefault();
-    // this.removeRotate90();
-    await this.grabWord();
+     this.removeRotate90();
+    // await this.grabWord();
     this.setState({
       showQuestion: true,
       guess: '',
+      nextWord: this.state.upcoming
+
       // nextQuestion: this.state.upcoming
     }) 
   }
@@ -68,22 +69,24 @@ componentDidMount(){
     e.preventDefault();
     try{
       const data = await LanguageService.postGuess({guess: this.state.guess})
-      console.log(data)
+      console.log('answer', data)
       this.rotate90();
-      setTimeout(() => this.setState({
+      setTimeout(()=>this.setState({
       showQuestion: false,
       answer: data.answer,
       isCorrect: data.isCorrect,
-      upcoming: data.nextWord,
       totalScore: data.totalScore,
-      correctCount: data.wordCorrectCount,
-      incorrectCount: data.wordIncorrectCount
-      }),500)
+      upcoming: data.nextWord
+      }), 500)
+      const datas = await LanguageService.getData()
+      console.log('all info', datas)
+
     } catch(e){
       this.setState({
         error: e.message
       })
       console.log(e);
+
     }
   }
   

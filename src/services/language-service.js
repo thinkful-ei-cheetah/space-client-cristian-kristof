@@ -37,7 +37,7 @@ export default {
         return errorJson
       }
       const jsonWordData = await data.json();
-     
+     console.log('head', jsonWordData)
       return jsonWordData;
     } catch (e){
       console.log('error')
