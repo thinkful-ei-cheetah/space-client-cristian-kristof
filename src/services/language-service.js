@@ -19,7 +19,6 @@ export default {
      
       return jsonData;
     } catch (e){
-      console.log('error')
       return {error: 'Problem getting data'}
     }
   },
@@ -37,10 +36,8 @@ export default {
         return errorJson
       }
       const jsonWordData = await data.json();
-     console.log('head', jsonWordData)
       return jsonWordData;
     } catch (e){
-      console.log('error')
       return {error: 'Problem getting data'}
     }
   },
@@ -63,7 +60,6 @@ export default {
      
       return jsonWordData;
     } catch (e){
-      console.log('error')
       return {error: 'Problem getting data'}
     }
   },

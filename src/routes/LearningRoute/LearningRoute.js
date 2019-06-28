@@ -52,7 +52,6 @@ componentDidMount(){
   }
 
   handleNextQuestion = async (e) => {
-   console.log('remove')
     e.preventDefault();
      this.removeRotate90();
     
@@ -70,7 +69,6 @@ componentDidMount(){
     e.preventDefault();
     try{
       const data = await LanguageService.postGuess({guess: this.state.guess})
-      console.log('answer', data)
       this.rotate90();
       setTimeout(()=>this.setState({
       showQuestion: false,
@@ -79,7 +77,7 @@ componentDidMount(){
       totalScore: data.totalScore,
       upcoming: data.nextWord
       }), 500)
-      const datas = await LanguageService.getData()
+      // const datas = await LanguageService.getData()
 
     } catch(e){
       this.setState({

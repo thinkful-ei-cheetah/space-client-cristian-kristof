@@ -13,13 +13,11 @@ class DashboardRoute extends Component {
   
 
   grabData = () =>{
-    console.log(this.context.name)
     if (!this.context.name){
-      console.log('yes i need to get data')
      LanguageService.getData()
      .then(this.context.setData)
      .catch(
-       console.log
+       console.log('problem')
     )
     }
   }

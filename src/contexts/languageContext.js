@@ -32,7 +32,6 @@ export class LanguageProvider extends Component {
 
 
   setData = (data) => {
-    console.log(data)
     this.setState({
       name: data.language.name,
       head: data.language.head,  //head is current word ID

@@ -39,8 +39,6 @@ class LoginForm extends Component {
         
 
       .catch(res => {
-        console.log('here')
-        console.log(res)
         this.setState({ error: res.error })
       })
   }
