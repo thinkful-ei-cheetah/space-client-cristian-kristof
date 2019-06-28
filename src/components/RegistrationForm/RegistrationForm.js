@@ -50,7 +50,7 @@ class RegistrationForm extends Component {
           <br/>
           <Label htmlFor='registration-name-input'>
             Enter your name<Required />
-            <br/>
+            
           </Label>
           <Input
             ref={this.firstInput}
