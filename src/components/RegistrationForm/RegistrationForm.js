@@ -17,16 +17,16 @@ class RegistrationForm extends Component {
   handleSubmit = ev => {
     ev.preventDefault()
     const { name, username, password } = ev.target
-    AuthApiService.postUser({
+    return AuthApiService.postUser({
       name: name.value,
       username: username.value,
       password: password.value,
     })
       .then(user => {
+        this.props.onRegistrationSuccess(username.value, password.value)
         name.value = ''
         username.value = ''
         password.value = ''
-        this.props.onRegistrationSuccess()
       })
       .catch(res => {
         this.setState({ error: res.error })
