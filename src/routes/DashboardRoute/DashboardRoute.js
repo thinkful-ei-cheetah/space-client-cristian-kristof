@@ -62,8 +62,8 @@ class DashboardRoute extends Component {
         </div> */}
         <span className="current-score">Total correct answers: {total_score} </span>
         <h2 className="current-language">{name}</h2> 
-        <ul className="word-list">
         <h3>Words to practice</h3>
+        <ul className="word-list">
          {this.wordList(words || [])}
         </ul>
         <Link to="/learn"  className="btn-style start-learn-btn" >Start practicing</Link>

@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import './Learning.css';
 import LanguageService from '../../services/language-service'
-import Question from './Question';
-import Answer from './Answer'
+import Question from './MainViews/Question';
+import Answer from './MainViews/Answer'
 
 // "nextWord": "Testnextword",
 //   "wordCorrectCount": 222,

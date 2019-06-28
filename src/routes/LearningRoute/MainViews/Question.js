@@ -1,5 +1,5 @@
 import React from 'react'
-import LearningForm from './LearningForm'
+import LearningForm from '../LearningForm'
 
 const Question = ({handleSubmit, handleInput, props}) => {
   
