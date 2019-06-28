@@ -55,6 +55,7 @@ componentDidMount(){
    console.log('remove')
     e.preventDefault();
      this.removeRotate90();
+    
     // await this.grabWord();
     this.setState({
       showQuestion: true,
@@ -79,7 +80,6 @@ componentDidMount(){
       upcoming: data.nextWord
       }), 500)
       const datas = await LanguageService.getData()
-      console.log('all info', datas)
 
     } catch(e){
       this.setState({

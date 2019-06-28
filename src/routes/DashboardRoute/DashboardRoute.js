@@ -66,7 +66,7 @@ class DashboardRoute extends Component {
         <h3>Words to practice</h3>
          {this.wordList(words || [])}
         </ul>
-        <Link to="/learn"  className="start-learn-btn" >Start practicing</Link>
+        <Link to="/learn"  className="btn-style start-learn-btn" >Start practicing</Link>
       </section>
     );
   }

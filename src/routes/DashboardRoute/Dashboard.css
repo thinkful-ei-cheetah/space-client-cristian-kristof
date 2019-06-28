@@ -35,7 +35,7 @@
   font-size: 15px;
   float: right;
 
-  padding-top: 10px;
+  padding-top: 5px;
   padding-right: 15px;
 
 }
@@ -52,6 +52,14 @@
   height: 300px;
   list-style: none;
   overflow-y: auto
+}
+
+@media screen and (max-width: 400px){
+
+  .word-list{
+    height: 250px;
+  }
+  
 }
 /* The -webkit-scrollbar family of properties consists of seven different pseudo-elements that, together, comprise a full scrollbar UI element:
 
@@ -86,7 +94,7 @@
   padding: 5px 10px;
 }
 
-.start-learn-btn{
+.start-learn-btn, .btn-style {
   padding: 10px 15px;
   background-color: transparent;
   border: 1px solid white;

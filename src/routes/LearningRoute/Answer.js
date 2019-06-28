@@ -17,11 +17,12 @@ const Answer = ({props, handleNextQuestion}) => {
     </div>
     <br/>
     <br/>
+    <br/>
     <div className="DisplayFeedback">
       {correctView}
       {followUp}
     </div> 
-    <button type="button" onClick={handleNextQuestion}>Try another word!</button>
+    <button className="btn-style" type="button" onClick={handleNextQuestion}>Try another word!</button>
   </section>
   )
 }

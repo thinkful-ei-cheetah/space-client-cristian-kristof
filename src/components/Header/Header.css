@@ -42,15 +42,17 @@ nav > a:hover{
 }  
 
 .welcome-user-text{
+  position:absolute;
   display: inline;
-  color: white;
+  top: 0px;
+  right: 0px;
   margin-right: 60px;
 }
 
 .logout-section{
   color: red;
   right: 10px;
-  top: 35px;  
+  top: 0px;  
   display: inline;
   position: absolute;
   
@@ -94,16 +96,29 @@ nav > a:hover{
 }
 
 nav{
- top: 20px
+ top: 20px;
 }
 
-.logged-in-view{
-  display: hidden;
+.show-me{
+  top:60px;/* display: inline; */
+}
+
+.hide-me{
+  top:-200px;
+
 }
 
 @media screen and (min-width: 500px){
   nav{
     display: inherit;
+    top:20px;
+  }
+
+  .welcome-user-text{
+    position:static;
+  }
+  .logged-in-view{
+    top:20px;
   }
 
   .container{
@@ -137,12 +152,6 @@ nav{
   .logout-section{
     display: inline;
     position: static;
-  
-  }
-  
-  .logged-in-view{
-  
-
   }
 }
 

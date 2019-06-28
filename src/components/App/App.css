@@ -77,7 +77,15 @@ body {
   }
 }
  
-@media screen and (max-width: 500px){
+@media screen and (max-width: 455px){
+  *{
+    font-size: .96em;
+  }
+
+  main{
+    margin-top: -10px;
+    width: 19em;
+  }
   
 }
 

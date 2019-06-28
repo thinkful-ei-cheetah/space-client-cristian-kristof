@@ -7,7 +7,8 @@ import './Header.css'
 class Header extends Component {
   state = {
     showMenuButton: true,
-    showMenu: false
+    showMenu: false,
+    showNav: false,
   }
   static contextType = UserContext
 
@@ -15,17 +16,20 @@ class Header extends Component {
     this.context.processLogout()
   }
 
-  toggleMenu(e){
-    console.log(e.currentTarget)
+  toggleMenu =(e) =>{
     e.currentTarget.classList.toggle("change");
+    this.setState({
+      showNav: !this.state.showNav
+    })
+
   }
   renderLogoutLink() {
     return (
-      <div className="logged-in-view">
+      <div className={`logged-in-view`}>
         <span className="welcome-user-text">
           {this.context.user.name}
         </span>
-        <nav className="logout-section">
+        <nav className={`logout-section  ${this.state.showNav?  'show-me' : 'hide-me'}`}>
           <Link
             onClick={this.handleLogoutClick}
             to='/login'>
@@ -38,7 +42,7 @@ class Header extends Component {
 
   renderLoginLink() {
     return (
-      <nav className="login-text">
+      <nav className={`login-text ${this.state.showNav?  'show-me' : 'hide-me'}`}>
         <Link to='/login'>Login</Link>
         {' | '}
         <Link to='/register'>Sign up</Link>
