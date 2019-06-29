@@ -75,9 +75,10 @@ componentDidMount(){
       answer: data.answer,
       isCorrect: data.isCorrect,
       totalScore: data.totalScore,
-      upcoming: data.nextWord
-      }), 500)
-      // const datas = await LanguageService.getData()
+      upcoming: data.nextWord,
+      correctCount: data.wordCorrectCount,
+      incorrectCount: data.wordIncorrectCount,
+      }), 500);
 
     } catch(e){
       this.setState({

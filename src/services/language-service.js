@@ -13,6 +13,7 @@ export default {
       })
       if (!data.ok){
         const errorJson = await data.json()
+        console.log(errorJson)
         return errorJson
       }
       const jsonData = await data.json();

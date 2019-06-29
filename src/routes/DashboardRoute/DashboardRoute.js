@@ -16,8 +16,7 @@ class DashboardRoute extends Component {
     if (!this.context.name){
      LanguageService.getData()
      .then(this.context.setData)
-     .catch(
-       console.log('problem')
+     .catch(console.log
     )
     }
   }
